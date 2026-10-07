@@ -36,7 +36,8 @@ enum class kAxis { X, Y, Z };
 } // namespace
 
 // 高速拆轴：>16 格/gt 时按 Y->X->Z 拆轴、每轴再按 <=16 分段；每段都是一次完整的原版管线。
-LL_TYPE_INSTANCE_HOOK(ActorMoveHook, HookPriority::Normal, Actor, &Actor::move, void, ::Vec3 const& posDelta) {
+// Lowest 保证最后计算，不影响其他探针
+LL_TYPE_INSTANCE_HOOK(ActorMoveHook, HookPriority::Lowest, Actor, &Actor::move, void, ::Vec3 const& posDelta) {
     if (!shouldSplitMove(*this, posDelta)) return origin(posDelta); // 原版，逐位一致
 
     for (kAxis axis : {kAxis::Y, kAxis::X, kAxis::Z}) {
