@@ -56,7 +56,7 @@
         {
           "type": "zip",
           "urls": [
-            "https://{{tooth}}/releases/download/v{{version}}/optimazeFastEntityMovement-windows-x64.zip/optimizedFastEntityMovement-client-windows-x64.zip"
+            "https://{{tooth}}/releases/download/v{{version}}/optimizedFastEntityMovement-client-windows-x64.zip"
           ],
           "placements": [
             {
